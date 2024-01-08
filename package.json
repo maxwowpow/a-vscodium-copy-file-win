@@ -1,0 +1,90 @@
+{
+  "name": "copyfile-to-clipboard-win",
+  "displayName": "Copy File To Clipboard (Win)",
+  "description": "Copy a file to the clipboard from the context menu (Win)",
+  "version": "1.0.0",
+  "publisher": "Amathron",
+  "author": {
+    "name": "Max Grass",
+    "url": "https://amathron.com"
+  },
+  "icon": "./resources/icon.png",
+  "funding": "https://github.com/sponsors/maxwowpow",
+  "sponsor": {
+    "url": "https://github.com/sponsors/maxwowpow"
+  },
+  "galleryBanner": {
+    "color": "#C80000",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Extension Packs"
+  ],
+  "keywords": [
+    "productivity",
+    "integration",
+    "fileoperation",
+    "customization"
+  ],
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "homepage": "https://github.com/maxwowpow/a-vscodium-copy-file-win/blob/main/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxwowpow/a-vscodium-copy-file-win.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maxwowpow/a-vscodium-copy-file-win/issues"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "amathron.copyfile.copyfile",
+          "group": "1_modification"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "amathron.copyfile.copyfile",
+        "title": "Copy to windows clipboard (as object)"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "imports": {
+    "#vscode": "./src/vscode-esm-load.mjs"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.73.0",
+    "@vscode/test-electron": "^2.2.0",
+    "eslint": "^8.26.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.8.4"
+  },
+  "license": "MIT",
+  "dependencies": {}
+}
