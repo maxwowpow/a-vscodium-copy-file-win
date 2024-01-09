@@ -25,6 +25,9 @@ Contributions to improve Amathron Copy File To Clipboard are welcome. Feel free 
 
 ## Release Notes
 
+### 1.0.2
+- Github link to readme fixed.
+
 ### 1.0.1
 - Using a copy npm package as a core dependency.
 

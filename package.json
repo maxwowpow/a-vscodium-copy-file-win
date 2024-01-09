@@ -2,7 +2,7 @@
   "name": "copyfile-to-clipboard-win",
   "displayName": "Copy File To Clipboard (Win)",
   "description": "Copy a file to the clipboard from the context menu (Win)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "Amathron",
   "author": {
     "name": "Max Grass",
@@ -38,7 +38,7 @@
       "supported": true
     }
   },
-  "homepage": "https://github.com/maxwowpow/a-vscodium-copy-file-win/blob/main/README.md",
+  "homepage": "https://github.com/maxwowpow/a-vscodium-copy-file-win/blob/master/README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/maxwowpow/a-vscodium-copy-file-win.git"
