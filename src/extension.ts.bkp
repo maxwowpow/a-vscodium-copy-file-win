@@ -1,13 +1,23 @@
-const vscode = require('vscode');
-const AmathronUtilClipboardWin = require('@amathron/copy-file-to-clipboard-win');
+import * as vscode from 'vscode';
+import AmathronUtilClipboardWin from '@amathron/copy-file-to-clipboard-win';
 
 const dbg = false;
 
 dbg && console.log('AMATHRON_SCRIPT_ROOT');
 
-// ... MAC and LINUX specific code ...
+/*
+// MAC
+// Alternative way to handle clipboard on macOS
+import { exec } from 'child_process';
+exec('echo "test foo bar" | pbcopy', (err, stdout, stderr) => {
+    console.log(stdout); // to confirm the application has been run
+});
+// LINUX
+// Command to install clipboard utility on Linux
+const linuxInstallCommand = `apt get install xclip`;
+*/
 
-function activate(context) {
+export function activate(context: vscode.ExtensionContext): void {
     const vsCommands = vscode.commands;
     const vsWindow = vscode.window;
 
@@ -15,7 +25,8 @@ function activate(context) {
 
     const subscriptions = context.subscriptions;
 
-    let disposable = vsCommands.registerCommand('amathron.copyfile.copyfile', async (uri) => {
+    // Register command
+    let disposable = vsCommands.registerCommand('amathron.copyfile.copyfile', async (uri: vscode.Uri) => {
         dbg && console.log('amathron.copyfile.copyfile TRIGGERED');
         try {
             const message = await AmathronUtilClipboardWin.copyFileToClipboardAsync([uri.fsPath]);
@@ -32,12 +43,7 @@ function activate(context) {
     subscriptions.push(disposable);
 }
 
-function deactivate(context) {
+export function deactivate(context: vscode.ExtensionContext): void {
     const subscriptions = context.subscriptions;
     // Clean up, remove subscriptions, etc.
 }
-
-module.exports = {
-    activate,
-    deactivate
-};
